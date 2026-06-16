@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ampersand Courier — Llegá a Argentina</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --o:#E84300;
+  --o2:#FF5C1A;
+  --blk:#080808;
+  --dark:#101010;
+  --card:#0D0D0D;
+  --gray:#666;
+  --light:#AAAAAA;
+  --wht:#FFFFFF;
+  --border:#1C1C1C;
+  --accent:#FF6B35;
+}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;}
+body{background:var(--blk);color:var(--wht);font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+.panel{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-left{display:flex;align-items:center;gap:16px;}
+.amp-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.1em;color:var(--wht);}
+.amp-logo span{color:var(--o);}
+.nav-divider{width:1px;height:20px;background:var(--border);}
+.nav-by{font-size:9px;letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;}
+.nav-cta{background:var(--o);color:#fff;border:none;padding:9px 22px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:1px;}
+
+/* PANEL 1 — HERO */
+.p1{background:var(--blk);padding-bottom:0;}
+.p1-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 60% at 80% 35%, rgba(232,67,0,0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 40% at 15% 75%, rgba(232,67,0,0.04) 0%, transparent 60%);
+}
+.p1-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem 0;}
+.p1-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:2rem;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--o);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.15;}}
+.p1-eyebrow span{font-size:10px;letter-spacing:0.22em;color:var(--o);text-transform:uppercase;}
+.p1 h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9vw,120px);line-height:0.9;letter-spacing:0.02em;margin-bottom:2rem;}
+.p1 h1 em{color:var(--o);font-style:normal;display:block;}
+.p1-sub{font-size:16px;color:var(--light);line-height:1.75;font-weight:300;margin-bottom:2.5rem;max-width:480px;}
+.p1-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-hero-cta{
+  position:relative;
+  display:inline-flex;align-items:center;gap:14px;
+  background:var(--o);color:#fff;border:none;
+  padding:16px 32px 16px 28px;
+  font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;border-radius:1px;
+  overflow:hidden;
+  transition:transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0 rgba(232,67,0,0);
+  animation: pulse-cta 2.5s ease-in-out infinite;
+}
+.btn-hero-cta::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+  transform:translateX(-100%);
+  animation:shimmer 2.5s ease-in-out infinite;
+}
+.btn-hero-cta:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 8px 32px rgba(232,67,0,0.5);
+  animation:none;
+}
+.btn-hero-cta:hover::before{ animation:none; }
+.btn-hero-text{ position:relative;z-index:1; }
+.btn-hero-arrow{
+  position:relative;z-index:1;
+  font-size:18px;
+  display:inline-block;
+  animation:bounce-x 1.2s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%{transform:translateX(-100%);}
+  60%,100%{transform:translateX(200%);}
+}
+@keyframes pulse-cta{
+  0%,100%{box-shadow:0 0 0 0 rgba(232,67,0,0.5);}
+  50%{box-shadow:0 0 0 10px rgba(232,67,0,0);}
+}
+@keyframes bounce-x{
+  0%,100%{transform:translateX(0);}
+  50%{transform:translateX(5px);}
+}
+.btn-o{background:var(--o);color:#fff;border:none;padding:14px 30px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:1px;}
+.btn-ghost{background:transparent;color:var(--wht);border:1px solid #2a2a2a;padding:14px 30px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border-radius:1px;}
+.route-card{background:var(--card);border:1px solid var(--border);padding:2rem;}
+.route-label{font-size:9px;letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin-bottom:1.5rem;}
+.route-flow{display:flex;flex-direction:column;gap:0;}
+.route-point{display:flex;align-items:center;gap:14px;padding:1rem 0;}
+.route-dot{width:10px;height:10px;border-radius:50%;background:var(--o);flex-shrink:0;}
+.route-dot.dest{background:var(--wht);}
+.route-info{flex:1;}
+.route-city{font-size:16px;font-weight:600;color:var(--wht);}
+.route-country{font-size:11px;color:var(--gray);}
+.route-line{width:2px;height:40px;background:linear-gradient(to bottom,var(--o),var(--wht));margin-left:4px;}
+.route-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:1.5rem;}
+.route-stat{background:var(--dark);padding:1rem;}
+.route-stat-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--o);}
+.route-stat-l{font-size:10px;color:var(--gray);letter-spacing:0.06em;}
+.p1-ticker{border-top:1px solid var(--border);margin-top:3rem;padding:1.2rem 0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-flex;gap:4rem;animation:ticker 20s linear infinite;}
+.ticker-inner span{font-size:10px;letter-spacing:0.18em;color:var(--gray);text-transform:uppercase;}
+.ticker-inner em{color:var(--o);font-style:normal;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* PANEL 2 */
+.p2{background:var(--o);padding:6rem 3rem;}
+.p2 h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,100px);line-height:0.92;max-width:850px;margin-bottom:3rem;letter-spacing:0.02em;}
+.p2 h2 em{font-style:normal;opacity:0.3;}
+.p2-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:820px;}
+.p2-col p{font-size:16px;line-height:1.8;color:rgba(0,0,0,0.72);font-weight:400;}
+.p2-col strong{color:var(--blk);font-weight:700;}
+
+/* PANEL 3 */
+.p3{padding:6rem 3rem;background:var(--blk);}
+.sec-label{font-size:9px;letter-spacing:0.22em;color:var(--o);text-transform:uppercase;margin-bottom:1.25rem;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5.5vw,72px);line-height:0.95;margin-bottom:3.5rem;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.svc-card{background:var(--card);padding:2rem 1.75rem;position:relative;}
+.svc-bar{position:absolute;top:0;left:0;width:100%;height:2px;background:var(--o);}
+.svc-icon{font-size:28px;color:var(--o);margin-bottom:1.5rem;display:block;}
+.svc-card h3{font-size:16px;font-weight:700;color:var(--wht);margin-bottom:0.75rem;letter-spacing:0.01em;}
+.svc-card p{font-size:12px;color:var(--gray);line-height:1.7;}
+.svc-tag{display:inline-block;margin-top:1.25rem;font-size:9px;letter-spacing:0.14em;color:var(--o);text-transform:uppercase;border:1px solid #2a2a2a;padding:4px 10px;}
+
+/* PANEL 4 */
+.p4{padding:6rem 3rem;background:var(--dark);}
+.process-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--border);}
+.proc-step{background:var(--card);padding:2rem 1.5rem;position:relative;}
+.proc-step::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--o);font-size:16px;z-index:2;}
+.proc-step:last-child::after{display:none;}
+.proc-n{font-family:'Bebas Neue',sans-serif;font-size:48px;color:#181818;line-height:1;margin-bottom:0.75rem;}
+.proc-step h4{font-size:12px;font-weight:700;color:var(--wht);margin-bottom:0.5rem;letter-spacing:0.02em;}
+.proc-step p{font-size:11px;color:var(--gray);line-height:1.6;}
+
+/* PANEL 5 */
+.p5{padding:6rem 3rem;background:var(--blk);}
+.p5-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.p5-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,68px);line-height:0.95;margin-bottom:2.5rem;}
+.p5-left h2 em{color:var(--o);font-style:normal;}
+.trust-list{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.trust-row{background:var(--card);display:flex;gap:1.25rem;padding:1.25rem;align-items:flex-start;}
+.trust-icon{width:36px;height:36px;background:var(--o);border-radius:1px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0;}
+.trust-row h4{font-size:13px;font-weight:600;color:var(--wht);margin-bottom:3px;}
+.trust-row p{font-size:11px;color:var(--gray);line-height:1.5;}
+.stats-block{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.stat-box{background:var(--card);padding:2rem 1.5rem;}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--o);line-height:1;}
+.stat-l{font-size:11px;color:var(--gray);margin-top:4px;line-height:1.4;}
+.cm-badge{background:var(--o);padding:1.5rem;margin-top:1px;}
+.cm-badge-text{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:0.06em;}
+.cm-badge-sub{font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;}
+
+/* PANEL COTIZADOR */
+.p-calc{padding:5rem 3rem;background:var(--blk);min-height:auto;}
+.calc-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:1px;background:var(--border);margin-top:2rem;}
+.calc-form{background:var(--card);padding:2.5rem 2rem;}
+.calc-output{background:var(--dark);padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:center;}
+.cf{margin-bottom:1.1rem;}
+.cf label{display:block;font-size:9px;letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin-bottom:5px;}
+.cf select,.cf input[type=number]{background:#0a0a0a;border:1px solid #1e1e1e;padding:10px 13px;font-size:13px;color:var(--wht);width:100%;border-radius:1px;outline:none;transition:border-color 0.2s;font-family:'Inter',sans-serif;}
+.cf select:focus,.cf input:focus{border-color:var(--o);}
+.cf-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;}
+.unit-toggle{display:flex;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:1px;overflow:hidden;height:41px;}
+.unit-toggle button{flex:1;background:transparent;border:none;color:var(--gray);font-size:11px;font-weight:600;letter-spacing:0.08em;cursor:pointer;padding:0 14px;transition:all 0.15s;}
+.unit-toggle button.active{background:var(--o);color:#fff;}
+.calc-cta{background:var(--o);color:#fff;border:none;width:100%;padding:13px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:1px;margin-top:6px;transition:opacity 0.2s;}
+.calc-cta:hover{opacity:0.88;}
+.calc-note{margin-top:0.75rem;font-size:10px;color:#2e2e2e;line-height:1.5;}
+.calc-err{background:#1a0505;border:1px solid #400;padding:0.75rem 1rem;font-size:12px;color:#ff7070;border-radius:1px;margin-top:0.5rem;display:none;}
+.calc-err.show{display:block;}
+
+/* result */
+.res-empty{text-align:center;padding:2rem 1rem;}
+.res-empty-icon{font-size:42px;color:#1e1e1e;margin-bottom:1rem;}
+.res-empty p{font-size:12px;color:var(--gray);line-height:1.6;}
+.res-box{display:none;}
+.res-box.show{display:block;}
+.res-lbl{font-size:9px;letter-spacing:0.22em;color:var(--o);text-transform:uppercase;margin-bottom:4px;}
+.res-svc{font-size:13px;font-weight:600;color:var(--wht);margin-bottom:1.5rem;line-height:1.4;}
+.res-price-card{background:#0a0a0a;border:1px solid #1e1e1e;padding:1.5rem;margin-bottom:1rem;}
+.res-price-sublbl{font-size:9px;letter-spacing:0.16em;color:var(--gray);text-transform:uppercase;margin-bottom:3px;}
+.res-price{font-family:'Bebas Neue',sans-serif;font-size:64px;color:var(--o);line-height:1;}
+.res-price-note{font-size:10px;color:#444;margin-top:4px;}
+.res-details{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:1rem;}
+.res-det{background:#0a0a0a;padding:0.9rem 1rem;}
+.res-det-n{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--wht);}
+.res-det-l{font-size:10px;color:var(--gray);}
+.res-disclaimer{font-size:10px;color:#333;line-height:1.5;padding-top:0.75rem;border-top:1px solid var(--border);}
+.res-wa{background:var(--o);color:#fff;border:none;width:100%;padding:12px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:1px;margin-top:0.75rem;}
+
+/* PANEL 6 PRICING */
+.p6{padding:6rem 3rem;background:var(--dark);}
+.pricing-layout{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);}
+.price-tier{background:var(--card);padding:2rem 1.5rem;position:relative;}
+.price-tier.featured{background:var(--o);}
+.tier-label{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;}
+.tier-label.dark{color:var(--gray);}
+.tier-label.light{color:rgba(255,255,255,0.6);}
+.tier-name{font-size:18px;font-weight:700;margin-bottom:0.5rem;}
+.tier-name.dark{color:var(--wht);}
+.tier-name.light{color:#fff;}
+.tier-price{font-family:'Bebas Neue',sans-serif;font-size:54px;line-height:1;margin-bottom:0.5rem;}
+.tier-price.dark{color:var(--o);}
+.tier-price.light{color:#fff;}
+.tier-by{font-size:12px;margin-bottom:1.5rem;}
+.tier-by.dark{color:var(--gray);}
+.tier-by.light{color:rgba(255,255,255,0.65);}
+.tier-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.tier-list li{font-size:12px;display:flex;gap:8px;line-height:1.4;}
+.tier-list.dark li{color:var(--light);}
+.tier-list.dark li::before{content:'—';color:var(--o);}
+.tier-list.light li{color:#fff;}
+.tier-list.light li::before{content:'✓';font-weight:700;}
+.price-note-strip{background:var(--card);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-top:1px;font-size:12px;color:var(--gray);line-height:1.6;grid-column:1/-1;}
+
+/* PANEL 7 CONTACTO */
+.p7{padding:6rem 3rem;background:var(--blk);}
+.p7-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.p7-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,82px);line-height:0.92;margin-bottom:1.5rem;}
+.p7-left h2 em{color:var(--o);font-style:normal;}
+.p7-left p{font-size:15px;color:var(--light);line-height:1.75;font-weight:300;margin-bottom:2rem;}
+.contact-list{display:flex;flex-direction:column;gap:0;background:var(--border);}
+.contact-item{background:var(--card);display:flex;align-items:center;gap:14px;padding:1rem 1.25rem;border-bottom:1px solid var(--border);}
+.contact-item:last-child{border-bottom:none;}
+.c-icon{width:34px;height:34px;background:var(--o);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0;border-radius:1px;}
+.c-lbl{font-size:9px;letter-spacing:0.14em;color:var(--gray);text-transform:uppercase;}
+.c-val{font-size:13px;color:var(--wht);font-weight:500;}
+.form-wrap{}
+.field{margin-bottom:11px;}
+.field label{display:block;font-size:9px;letter-spacing:0.18em;color:var(--gray);text-transform:uppercase;margin-bottom:5px;}
+.field input,.field textarea,.field select{background:#0a0a0a;border:1px solid #1e1e1e;padding:11px 13px;font-size:13px;color:var(--wht);width:100%;border-radius:1px;outline:none;transition:border-color 0.2s;font-family:'Inter',sans-serif;}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--o);}
+.field textarea{height:80px;resize:none;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.submit-btn{background:var(--o);color:#fff;border:none;width:100%;padding:15px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:1px;margin-top:4px;}
+.submit-mail{display:block;text-align:center;background:transparent;color:var(--light);border:1px solid var(--border);width:100%;padding:12px;font-size:12px;letter-spacing:0.06em;cursor:pointer;border-radius:1px;margin-top:8px;text-decoration:none;}
+
+/* FOOTER */
+.foot{padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-top:1px solid var(--border);}
+.foot-l{font-size:10px;color:#252525;letter-spacing:0.1em;text-transform:uppercase;}
+.foot-r{font-size:11px;color:var(--o);}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div>
+      <div class="amp-logo">AMPERSAND <span>&</span> COURIER</div>
+    </div>
+    <div class="nav-divider"></div>
+    <div class="nav-by">by C&M Shipbroker · Desde 2004</div>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Cotizá ahora</button>
+</nav>
+
+<!-- PANEL 1: HERO -->
+<div class="panel p1">
+  <div class="p1-bg"></div>
+  <div class="p1-grid">
+    <div class="p1-left">
+      <div class="p1-eyebrow">
+        <div class="dot"></div>
+        <span>USA · Argentina · Uruguay · El puente que faltaba</span>
+      </div>
+      <h1>45 millones<br><em>te esperan.</em><br>Llegá.</h1>
+      <p class="p1-sub">Argentina es uno de los mercados más deseados y menos alcanzados de Latinoamérica. Nosotros rompemos esa barrera: aduana, flete, entrega — todo resuelto por el equipo de C&M, con 20 años operando en el país.</p>
+      <div class="p1-btns">
+        <button class="btn-hero-cta" onclick="document.getElementById('cotizador').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-hero-text">Cotizá tu envío ahora</span>
+          <span class="btn-hero-arrow">→</span>
+        </button>
+        <button class="btn-ghost" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Hablar con un experto</button>
+      </div>
+    </div>
+    <div class="p1-right">
+      <div class="route-card">
+        <div class="route-label">Operamos estas rutas hoy</div>
+        <div class="route-flow">
+          <div class="route-point">
+            <div class="route-dot"></div>
+            <div class="route-info">
+              <div class="route-city">Estados Unidos</div>
+              <div class="route-country">Origen · Cualquier estado</div>
+            </div>
+          </div>
+          <div class="route-line"></div>
+          <div class="route-point">
+            <div class="route-dot dest"></div>
+            <div class="route-info">
+              <div class="route-city">Argentina / Uruguay</div>
+              <div class="route-country">Destino · Buenos Aires, interior y Montevideo</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-meta">
+          <div class="route-stat">
+            <div class="route-stat-n">7–12</div>
+            <div class="route-stat-l">días hábiles puerta a puerta</div>
+          </div>
+          <div class="route-stat">
+            <div class="route-stat-n">0</div>
+            <div class="route-stat-l">trámites de tu parte</div>
+          </div>
+          <div class="route-stat">
+            <div class="route-stat-n">20+</div>
+            <div class="route-stat-l">años en el mercado</div>
+          </div>
+          <div class="route-stat">
+            <div class="route-stat-n">ISO</div>
+            <div class="route-stat-l">9001 certificado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p1-ticker">
+    <div class="ticker-inner">
+      <span>Flete aéreo USA → Argentina</span><em>·</em>
+      <span>Aduana gestionada 100%</span><em>·</em>
+      <span>Tracking en tiempo real</span><em>·</em>
+      <span>ISO 9001 · C&M Shipbroker · Desde 2004</span><em>·</em>
+      <span>Moda · Tech · Consumo · Salud · Alimentos</span><em>·</em>
+      <span>Flete aéreo USA → Argentina</span><em>·</em>
+      <span>Aduana gestionada 100%</span><em>·</em>
+      <span>Tracking en tiempo real</span><em>·</em>
+      <span>ISO 9001 · C&M Shipbroker · Desde 2004</span><em>·</em>
+      <span>Moda · Tech · Consumo · Salud · Alimentos</span><em>·</em>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL COTIZADOR -->
+<div class="panel p-calc" id="cotizador">
+  <div class="sec-label">Cotizador FedEx</div>
+  <div class="sec-title">Calculá tu tarifa<br>al instante.</div>
+  <div class="calc-wrap">
+    <div class="calc-form">
+
+      <div class="cf">
+        <label>Ruta</label>
+        <select id="c-route" onchange="onRouteChange()">
+          <option value="">— Seleccioná la ruta —</option>
+          <optgroup label="Importación (hacia Argentina / Uruguay)">
+            <option value="import-ARG">USA → Argentina</option>
+            <option value="import-URU">USA → Uruguay</option>
+          </optgroup>
+          <optgroup label="Exportación (desde Argentina)">
+            <option value="export-USA">Argentina → USA</option>
+            <option value="export-URU">Argentina → Uruguay</option>
+            <option value="export-BRA">Argentina → Brasil</option>
+            <option value="export-EUR">Argentina → Europa (Zona D)</option>
+            <option value="export-CHN">Argentina → China / Asia (Zona G)</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="cf">
+        <label>Servicio</label>
+        <select id="c-service">
+          <option value="">— Primero seleccioná la ruta —</option>
+        </select>
+      </div>
+
+      <div class="cf">
+        <label>Tipo de envío</label>
+        <select id="c-pkg">
+          <option value="Package">Paquete / Caja</option>
+          <option value="Pak">Pak / Sobre acolchado</option>
+          <option value="Envelope">Sobre (solo documentos)</option>
+        </select>
+      </div>
+
+      <div class="cf">
+        <label>Peso</label>
+        <div class="cf-row">
+          <input type="number" id="c-weight" placeholder="ej: 5" min="0.1" step="0.1">
+          <div class="unit-toggle">
+            <button class="active" id="btn-kg" onclick="setUnit('kg')">KG</button>
+            <button id="btn-lb" onclick="setUnit('lb')">LB</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-err" id="c-err">Completá todos los campos e ingresá un peso válido.</div>
+      <button class="calc-cta" onclick="calcRate()">Calcular tarifa neta →</button>
+      <div class="calc-note">Tarifas FedEx netas vigentes al 19 de marzo de 2026 · USD · No incluye recargos, impuestos ni honorarios de gestión Ampersand.</div>
+    </div>
+
+    <div class="calc-output">
+      <div class="res-empty" id="res-empty">
+        <div class="res-empty-icon">
+          <i class="ti ti-calculator" style="font-size:42px;color:#1e1e1e;"></i>
+        </div>
+        <p>Completá los datos de tu envío<br>y obtené la tarifa neta FedEx<br>en segundos.</p>
+      </div>
+      <div class="res-box" id="res-box">
+        <div class="res-lbl">Tarifa neta · FedEx</div>
+        <div class="res-svc" id="r-svc">—</div>
+        <div class="res-price-card">
+          <div class="res-price-sublbl">Flete FedEx estimado</div>
+          <div class="res-price" id="r-price">—</div>
+          <div class="res-price-note">USD · sin recargos ni impuestos</div>
+        </div>
+        <div class="res-details">
+          <div class="res-det">
+            <div class="res-det-n" id="r-wt">—</div>
+            <div class="res-det-l">Peso cobrable (kg)</div>
+          </div>
+          <div class="res-det">
+            <div class="res-det-n" id="r-zone">—</div>
+            <div class="res-det-l">Zona tarifaria</div>
+          </div>
+          <div class="res-det">
+            <div class="res-det-n" id="r-rate">—</div>
+            <div class="res-det-l">Tarifa aplicada</div>
+          </div>
+          <div class="res-det">
+            <div class="res-det-n" id="r-type">—</div>
+            <div class="res-det-l">Tipo de tarifa</div>
+          </div>
+        </div>
+        <div class="res-disclaimer">
+          Este es el costo de flete FedEx neto únicamente. El honorario de gestión Ampersand Courier, fuel surcharge, derechos aduaneros e impuestos argentinos/uruguayos son adicionales. Contactanos para una cotización all-in completa.
+        </div>
+        <button class="res-wa" onclick="sendWAQuote()">Pedir cotización completa por WhatsApp →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 2: PROBLEMA -->
+<div class="panel p2">
+  <h2>Argentina es un<br>mercado enorme.<br><em>Difícil de alcanzar.</em></h2>
+  <div class="p2-cols">
+    <div class="p2-col">
+      <p>45 millones de consumidores, clase media en crecimiento y fuerte demanda de marcas estadounidenses — pero la <strong>complejidad aduanera, los controles cambiarios y la falta de operadores logísticos</strong> mantienen afuera a la mayoría de las empresas de EE.UU.</p>
+    </div>
+    <div class="p2-col">
+      <p>Ampersand Courier elimina cada barrera. <strong>Gestionamos aduana, cumplimiento normativo, entrega de última milla y seguimiento</strong> — para que vos te enfoques en vender, no en enviar.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 3: SERVICIOS -->
+<div class="panel p3">
+  <div class="sec-label">Qué hacemos</div>
+  <div class="sec-title">Logística integral.<br>Cero dolores de cabeza.</div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-bar"></div>
+      <i class="ti ti-file-invoice svc-icon"></i>
+      <h3>Aduana y documentación</h3>
+      <p>Despacho aduanero completo, permisos de importación y toda la documentación gestionada por nuestro equipo de compliance. Vos enviás — nosotros despachamos.</p>
+      <span class="svc-tag">Punta a punta</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-bar"></div>
+      <i class="ti ti-map-pin svc-icon"></i>
+      <h3>Entrega última milla</h3>
+      <p>Entrega puerta a puerta en Buenos Aires, Montevideo y principales ciudades del interior. Seguimiento desde tu depósito hasta el destinatario final.</p>
+      <span class="svc-tag">Todo el país</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-bar"></div>
+      <i class="ti ti-device-mobile svc-icon"></i>
+      <h3>Tracking en tiempo real</h3>
+      <p>Tus clientes reciben seguimiento en vivo desde que el paquete sale de EE.UU. Visibilidad total en cada etapa del viaje.</p>
+      <span class="svc-tag">Updates en vivo</span>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 4: PROCESO -->
+<div class="panel p4" id="proceso">
+  <div class="sec-label">El proceso</div>
+  <div class="sec-title">Cinco pasos.<br>Un solo socio.</div>
+  <div class="process-row">
+    <div class="proc-step">
+      <div class="proc-n">01</div>
+      <h4>Enviás a nuestro hub en EE.UU.</h4>
+      <p>Mandá tus paquetes a nuestra dirección de consolidación en Estados Unidos. Sin preparación especial.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-n">02</div>
+      <h4>Consolidamos y documentamos</h4>
+      <p>Agrupamos envíos, preparamos toda la documentación aduanera y las declaraciones de importación.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-n">03</div>
+      <h4>Tránsito internacional</h4>
+      <p>Flete aéreo a Buenos Aires o Montevideo con seguimiento completo. Promedio 3–5 días en tránsito.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-n">04</div>
+      <h4>Despacho aduanero</h4>
+      <p>Nuestro equipo gestiona todo en aduana argentina y uruguaya. Sin intervención de tu parte.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-n">05</div>
+      <h4>Entrega final</h4>
+      <p>Entrega puerta a puerta con notificación de tracking en tiempo real a tu cliente final.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 5: POR QUÉ AMPERSAND -->
+<div class="panel p5">
+  <div class="p5-grid">
+    <div class="p5-left">
+      <div class="sec-label">Por qué Ampersand</div>
+      <h2>Velocidad. Confianza.<br><em>Experiencia.</em></h2>
+      <div class="trust-list">
+        <div class="trust-row">
+          <div class="trust-icon"><i class="ti ti-clock"></i></div>
+          <div>
+            <h4>Rápido y confiable</h4>
+            <p>7–12 días hábiles promedio puerta a puerta. Seguimiento en tiempo real desde el pickup hasta la entrega.</p>
+          </div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-icon"><i class="ti ti-shield-check"></i></div>
+          <div>
+            <h4>Expertos en aduana</h4>
+            <p>20+ años navegando las regulaciones de importación en Argentina y Uruguay. Conocemos cada requisito, cada documento, cada norma.</p>
+          </div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-icon"><i class="ti ti-headset"></i></div>
+          <div>
+            <h4>Soporte dedicado</h4>
+            <p>Ejecutivos de cuenta bilingües. Un solo punto de contacto para toda tu operación.</p>
+          </div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-icon"><i class="ti ti-chart-line"></i></div>
+          <div>
+            <h4>Escalamos con vos</h4>
+            <p>Desde 1 paquete hasta volúmenes comerciales. La misma calidad de servicio en cualquier escala.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p5-right">
+      <div class="stats-block">
+        <div class="stat-box">
+          <div class="stat-n">20+</div>
+          <div class="stat-l">Años en freight forwarding</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n">45M</div>
+          <div class="stat-l">Consumidores argentinos alcanzables</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n">7–12</div>
+          <div class="stat-l">Días hábiles promedio de entrega</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Aduana gestionada de punta a punta</div>
+        </div>
+      </div>
+      <div class="cm-badge">
+        <div class="cm-badge-text">C&M SHIPBROKER · GLOBALBROKER ENGINEERING</div>
+        <div class="cm-badge-sub">Ampersand Courier está respaldado por la red logística de 20 años de C&M en Argentina y Uruguay.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 6: PRICING -->
+<div class="panel p6">
+  <div class="sec-label">Precios</div>
+  <div class="sec-title">Precios simples<br>y transparentes.</div>
+  <div class="pricing-layout">
+    <div class="price-tier">
+      <div class="tier-label dark">Paquetes pequeños</div>
+      <div class="tier-name dark">Starter</div>
+      <div class="tier-price dark">USD 25</div>
+      <div class="tier-by dark">honorario base por envío</div>
+      <ul class="tier-list dark">
+        <li>Hasta 2 kg / 4.4 lb</li>
+        <li>Gestión aduanera completa</li>
+        <li>Tracking en tiempo real</li>
+        <li>7–12 días hábiles</li>
+      </ul>
+    </div>
+    <div class="price-tier featured">
+      <div class="tier-label light">Más popular</div>
+      <div class="tier-name light">Standard</div>
+      <div class="tier-price light">USD 45</div>
+      <div class="tier-by light">honorario base por envío</div>
+      <ul class="tier-list light">
+        <li>Hasta 10 kg / 22 lb</li>
+        <li>Gestión aduanera completa</li>
+        <li>Procesamiento prioritario</li>
+        <li>Tracking en tiempo real</li>
+        <li>7–10 días hábiles</li>
+        <li>Ejecutivo de cuenta dedicado</li>
+      </ul>
+    </div>
+    <div class="price-tier">
+      <div class="tier-label dark">Alto volumen</div>
+      <div class="tier-name dark">Comercial</div>
+      <div class="tier-price dark">A medida</div>
+      <div class="tier-by dark">precio según volumen</div>
+      <ul class="tier-list dark">
+        <li>Peso / volumen ilimitado</li>
+        <li>Gestión aduanera completa</li>
+        <li>Shipping consolidado</li>
+        <li>Despacho prioritario</li>
+        <li>Equipo de operaciones dedicado</li>
+        <li>Reportes mensuales</li>
+      </ul>
+    </div>
+    <div class="price-note-strip">
+      Todos los precios son honorarios de gestión base. El costo de flete real (según peso) se cotiza por separado antes de la confirmación. Sin costos ocultos.
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 7: CONTACTO -->
+<div class="panel p7" id="contacto">
+  <div class="p7-grid">
+    <div class="p7-left">
+      <h2>¿Listo para llegar a<br><em>Argentina?</em></h2>
+      <p>Completá el formulario y nuestro equipo te responde en menos de 24 horas con una cotización a medida. Sin compromiso.</p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="c-icon"><i class="ti ti-brand-whatsapp"></i></div>
+          <div>
+            <div class="c-lbl">WhatsApp</div>
+            <div class="c-val">+54 9 11 2245-9545</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon"><i class="ti ti-mail"></i></div>
+          <div>
+            <div class="c-lbl">Email</div>
+            <div class="c-val">info@cmship.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon"><i class="ti ti-world"></i></div>
+          <div>
+            <div class="c-lbl">Web</div>
+            <div class="c-val">cm-shipbroker.com.ar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-wrap">
+      <div class="field-row">
+        <div class="field">
+          <label>Tu nombre</label>
+          <input type="text" placeholder="Nombre y apellido" id="f-name">
+        </div>
+        <div class="field">
+          <label>Empresa</label>
+          <input type="text" placeholder="Marca o empresa">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="vos@empresa.com" id="f-email">
+        </div>
+        <div class="field">
+          <label>Teléfono / WhatsApp</label>
+          <input type="text" placeholder="+1 ...">
+        </div>
+      </div>
+      <div class="field">
+        <label>¿Qué querés enviar?</label>
+        <textarea placeholder="Tipo de producto, peso/volumen estimado, frecuencia..." id="f-msg"></textarea>
+      </div>
+      <div class="field">
+        <label>Volumen mensual estimado</label>
+        <select>
+          <option value="">Seleccioná un rango</option>
+          <option>1–10 envíos/mes</option>
+          <option>11–50 envíos/mes</option>
+          <option>50+ envíos/mes</option>
+          <option>Todavía no lo sé</option>
+        </select>
+      </div>
+      <button class="submit-btn" onclick="sendWA()">Enviar por WhatsApp ↗</button>
+      <a href="mailto:info@cmship.com" class="submit-mail">Preferís email: info@cmship.com</a>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="foot-l">Ampersand Courier · Powered by C&M Shipbroker · GlobalBroker Engineering · Desde 2004</div>
+  <div class="foot-r">+54 9 11 2245-9545</div>
+</div>
+
+<script>
+// ─── UNIT TOGGLE ─────────────────────────────────────────────────────────────
+let currentUnit = 'kg';
+function setUnit(u){
+  currentUnit = u;
+  document.getElementById('btn-kg').classList.toggle('active', u==='kg');
+  document.getElementById('btn-lb').classList.toggle('active', u==='lb');
+  document.getElementById('c-weight').placeholder = u==='kg' ? 'ej: 5' : 'ej: 11';
+}
+
+// ─── SERVICIOS POR RUTA ───────────────────────────────────────────────────────
+const SERVICES_BY_ROUTE = {
+  'import-ARG': [
+    {v:'IP',  l:'FedEx Int\'l Priority (IP)'},
+    {v:'IE',  l:'FedEx Int\'l Economy (IE)'},
+    {v:'IPF-DTD', l:'FedEx Int\'l Priority Freight DTD (>68kg)'},
+    {v:'IEF-DTD', l:'FedEx Int\'l Economy Freight DTD (>68kg)'},
+    {v:'FDF-DTD', l:'FedEx Int\'l Deferred Freight DTD (>68kg)'},
+  ],
+  'import-URU': [
+    {v:'IP',  l:'FedEx Int\'l Priority (IP)'},
+    {v:'IE',  l:'FedEx Int\'l Economy (IE)'},
+    {v:'IPF-DTD', l:'FedEx Int\'l Priority Freight DTD (>68kg)'},
+  ],
+  'export-USA': [
+    {v:'IPE', l:'FedEx Int\'l Priority Express (IPE) · Más rápido'},
+    {v:'IP',  l:'FedEx Int\'l Priority (IP)'},
+    {v:'IE',  l:'FedEx Int\'l Economy (IE)'},
+    {v:'IPF-DTD', l:'FedEx Int\'l Priority Freight DTD (>68kg)'},
+    {v:'IEF-DTD', l:'FedEx Int\'l Economy Freight DTD (>68kg)'},
+    {v:'FDF-DTD', l:'FedEx Int\'l Deferred Freight DTD (>68kg)'},
+  ],
+  'export-URU': [
+    {v:'IPE', l:'FedEx Int\'l Priority Express (IPE)'},
+    {v:'IP',  l:'FedEx Int\'l Priority (IP)'},
+    {v:'IE',  l:'FedEx Int\'l Economy (IE)'},
+  ],
+  'export-BRA': [
+    {v:'IPE', l:'FedEx Int\'l Priority Express (IPE)'},
+    {v:'IP',  l:'FedEx Int\'l Priority (IP)'},
+    {v:'IE',  l:'FedEx Int\'l Economy (IE)'},
+  ],
+  'export-EUR': [
+    {v:'IPE', l:'FedEx Int\'l Priority Express (IPE)'},
+    {v:'IP',  l:'FedEx Int\'l Priority (IP)'},
+    {v:'IE',  l:'FedEx Int\'l Economy (IE)'},
+    {v:'IPF-DTD', l:'FedEx Int\'l Priority Freight DTD (>68kg)'},
+    {v:'IEF-DTD', l:'FedEx Int\'l Economy Freight DTD (>68kg)'},
+  ],
+  'export-CHN': [
+    {v:'IPE', l:'FedEx Int\'l Priority Express (IPE)'},
+    {v:'IP',  l:'FedEx Int\'l Priority (IP)'},
+    {v:'IE',  l:'FedEx Int\'l Economy (IE)'},
+  ],
+};
+
+function onRouteChange(){
+  const route = document.getElementById('c-route').value;
+  const sel = document.getElementById('c-service');
+  sel.innerHTML = '<option value="">— Seleccioná el servicio —</option>';
+  if(!route) return;
+  (SERVICES_BY_ROUTE[route]||[]).forEach(s=>{
+    const o = document.createElement('option');
+    o.value = s.v; o.textContent = s.l;
+    sel.appendChild(o);
+  });
+}
+
+// ─── ZONA POR RUTA ────────────────────────────────────────────────────────────
+// Zones from PDF zone chart
+function getZone(route){
+  const map = {
+    'import-ARG': 'A',   // Argentina import: Zone A
+    'import-URU': 'A',   // Uruguay import: Zone A
+    'export-USA': 'C',   // USA export: Zone C
+    'export-URU': 'A',   // Uruguay export: Zone A
+    'export-BRA': 'A',   // Brasil export: Zone A
+    'export-EUR': 'D',   // Europe export: Zone D
+    'export-CHN': 'G',   // China export: Zone G
+  };
+  return map[route] || 'C';
+}
+
+function getZoneLabel(route){
+  const map = {
+    'import-ARG': 'Zona A (ARG)',
+    'import-URU': 'Zona A (URU)',
+    'export-USA': 'Zona C (USA)',
+    'export-URU': 'Zona A (URU)',
+    'export-BRA': 'Zona A (BRA)',
+    'export-EUR': 'Zona D (EUR)',
+    'export-CHN': 'Zona G (CHN)',
+  };
+  return map[route] || 'Zona C';
+}
+
+// ─── TABLAS DE TARIFAS ────────────────────────────────────────────────────────
+// EXPORT desde Argentina - todas las zonas del PDF
+// Estructura: [peso_hasta, {A,B,C,D,E,F,G}]
+// Para pesos <= 20.5 kg: flat por shipment
+// Para pesos > 20.5 kg: per-kg
+
+const EXP_IPE_PKG_FLAT = [
+  [0.5, {A:25.40,B:28.78,C:29.27,D:35.60,E:39.29,F:44.52,G:34.75}],
+  [1.0, {A:27.68,B:32.05,C:32.92,D:39.60,E:44.15,F:50.74,G:38.91}],
+  [1.5, {A:29.95,B:35.33,C:36.57,D:43.60,E:49.01,F:56.97,G:43.07}],
+  [2.0, {A:32.23,B:38.61,C:40.23,D:47.60,E:53.87,F:63.19,G:47.23}],
+  [2.5, {A:34.51,B:41.89,C:43.88,D:51.60,E:58.73,F:69.42,G:51.39}],
+  [3.0, {A:37.38,B:46.24,C:47.54,D:56.43,E:65.18,F:74.17,G:56.21}],
+  [3.5, {A:40.25,B:50.60,C:51.20,D:61.26,E:71.63,F:78.92,G:61.03}],
+  [4.0, {A:43.12,B:54.96,C:54.87,D:66.09,E:78.08,F:83.68,G:65.85}],
+  [4.5, {A:45.99,B:59.31,C:58.53,D:70.92,E:84.53,F:88.43,G:70.67}],
+  [5.0, {A:48.86,B:63.67,C:62.19,D:75.75,E:90.98,F:93.18,G:75.49}],
+  [5.5, {A:50.93,B:65.22,C:64.66,D:78.51,E:94.61,F:97.76,G:78.26}],
+  [6.0, {A:53.00,B:66.77,C:67.12,D:81.27,E:98.24,F:102.33,G:81.03}],
+  [6.5, {A:55.07,B:68.32,C:69.59,D:84.03,E:101.87,F:106.91,G:83.80}],
+  [7.0, {A:57.13,B:69.87,C:72.05,D:86.79,E:105.50,F:111.48,G:86.57}],
+  [7.5, {A:59.20,B:71.42,C:74.51,D:89.55,E:109.13,F:116.06,G:89.34}],
+  [8.0, {A:61.27,B:72.97,C:76.98,D:92.31,E:112.76,F:120.64,G:92.11}],
+  [8.5, {A:63.34,B:74.52,C:79.44,D:95.07,E:116.39,F:125.21,G:94.88}],
+  [9.0, {A:65.41,B:76.08,C:81.91,D:97.83,E:120.02,F:129.79,G:97.65}],
+  [9.5, {A:67.47,B:77.63,C:84.37,D:100.59,E:123.65,F:134.36,G:100.42}],
+  [10.0,{A:69.54,B:79.18,C:86.83,D:103.35,E:127.28,F:138.94,G:103.19}],
+  [10.5,{A:70.99,B:89.02,C:96.85,D:105.56,E:156.11,F:168.35,G:105.37}],
+  [11.0,{A:72.45,B:91.66,C:98.98,D:107.77,E:159.48,F:172.50,G:107.55}],
+  [11.5,{A:73.90,B:94.30,C:101.10,D:109.98,E:162.85,F:176.64,G:109.73}],
+  [12.0,{A:75.35,B:96.94,C:103.22,D:112.19,E:166.22,F:180.79,G:111.91}],
+  [12.5,{A:76.80,B:99.58,C:105.35,D:114.40,E:169.60,F:184.94,G:114.09}],
+  [13.0,{A:78.25,B:102.22,C:107.47,D:116.61,E:172.97,F:189.08,G:116.27}],
+  [13.5,{A:79.71,B:104.86,C:109.60,D:118.82,E:176.34,F:193.23,G:118.45}],
+  [14.0,{A:81.16,B:107.50,C:111.72,D:121.03,E:179.71,F:197.38,G:120.63}],
+  [14.5,{A:82.61,B:110.14,C:113.84,D:123.24,E:183.08,F:201.53,G:122.81}],
+  [15.0,{A:84.06,B:112.78,C:115.97,D:125.45,E:186.46,F:205.67,G:124.99}],
+  [15.5,{A:85.51,B:115.42,C:118.09,D:127.66,E:189.83,F:209.82,G:127.17}],
+  [16.0,{A:86.97,B:118.06,C:120.22,D:129.87,E:193.20,F:213.97,G:129.35}],
+  [16.5,{A:88.42,B:120.70,C:122.34,D:132.08,E:196.57,F:218.11,G:131.53}],
+  [17.0,{A:89.87,B:123.34,C:124.46,D:134.29,E:199.94,F:222.26,G:133.71}],
+  [17.5,{A:91.32,B:125.50,C:126.59,D:136.50,E:203.32,F:226.41,G:135.89}],
+  [18.0,{A:92.77,B:125.50,C:128.71,D:138.71,E:206.69,F:230.55,G:138.07}],
+  [18.5,{A:94.23,B:125.50,C:130.84,D:140.92,E:210.06,F:234.70,G:140.25}],
+  [19.0,{A:95.68,B:125.50,C:132.96,D:143.13,E:213.43,F:238.85,G:142.43}],
+  [19.5,{A:97.13,B:125.50,C:135.08,D:145.34,E:216.80,F:243.00,G:144.61}],
+  [20.0,{A:98.58,B:125.50,C:137.21,D:147.55,E:220.18,F:247.14,G:146.79}],
+  [20.5,{A:109.12,B:135.95,C:150.94,D:164.74,E:260.81,F:285.39,G:163.87}],
+];
+const EXP_IPE_PAK_FLAT = [
+  [0.5,{A:18.71,B:20.41,C:20.53,D:26.48,E:28.85,F:32.75,G:26.39}],
+  [1.0,{A:23.28,B:26.05,C:26.81,D:33.67,E:33.54,F:37.05,G:33.43}],
+  [1.5,{A:26.59,B:30.97,C:32.21,D:40.41,E:40.22,F:42.62,G:39.82}],
+  [2.0,{A:29.90,B:35.89,C:37.61,D:47.16,E:46.90,F:48.19,G:46.21}],
+  [2.5,{A:33.22,B:40.81,C:43.01,D:53.90,E:53.58,F:53.76,G:52.60}],
+];
+// Per-kg export IPE/IP zones A,B,C,E,F (D and G separate)
+const EXP_IPE_PERKG = [
+  [21,44,  {A:5.1960,B:6.4740,C:7.1890,E:13.0200,F:13.5900,D:8.4150,G:8.4040}],
+  [45,70,  {A:4.0200,B:5.6290,C:6.0580,E:10.4020,F:11.3250,D:6.8970,G:6.8970}],
+  [71,99,  {A:3.7830,B:4.9400,C:5.7720,E:10.0950,F:10.6500,D:6.8090,G:6.7870}],
+  [100,299,{A:3.7700,B:4.9400,C:5.7720,E:9.9900, F:10.6500,D:6.4460,G:6.1930}],
+  [300,499,{A:3.6400,B:4.9400,C:5.7720,E:9.9750, F:10.6500,D:6.1270,G:5.9180}],
+  [500,999,{A:3.6140,B:4.9400,C:5.7720,E:9.9750, F:10.6500,D:6.0280,G:5.8410}],
+  [1000,99999,{A:3.5620,B:4.9400,C:5.7720,E:9.9750,F:10.6500,D:5.9950,G:5.7750}],
+];
+
+const EXP_IP_PKG_FLAT = [
+  [0.5,{A:22.68,B:25.70,C:26.14,D:31.79,E:35.08,F:39.74,G:31.03}],
+  [1.0,{A:24.72,B:28.62,C:29.39,D:35.36,E:39.42,F:45.30,G:34.74}],
+  [1.5,{A:26.75,B:31.55,C:32.65,D:38.93,E:43.76,F:50.85,G:38.45}],
+  [2.0,{A:28.79,B:34.47,C:35.90,D:42.50,E:48.10,F:56.41,G:42.16}],
+  [2.5,{A:30.82,B:37.40,C:39.16,D:46.07,E:52.44,F:61.96,G:45.87}],
+  [3.0,{A:33.38,B:41.29,C:42.43,D:50.38,E:58.20,F:66.21,G:50.17}],
+  [3.5,{A:35.95,B:45.19,C:45.69,D:54.69,E:63.96,F:70.45,G:54.47}],
+  [4.0,{A:38.51,B:49.08,C:48.96,D:59.00,E:69.72,F:74.70,G:58.77}],
+  [4.5,{A:41.07,B:52.98,C:52.23,D:63.31,E:75.48,F:78.95,G:63.07}],
+  [5.0,{A:43.64,B:56.87,C:55.49,D:67.62,E:81.24,F:83.19,G:67.37}],
+  [5.5,{A:45.48,B:58.26,C:57.69,D:70.08,E:84.48,F:87.27,G:69.84}],
+  [6.0,{A:47.33,B:59.64,C:59.89,D:72.54,E:87.72,F:91.35,G:72.31}],
+  [6.5,{A:49.18,B:61.03,C:62.09,D:75.00,E:90.96,F:95.44,G:74.78}],
+  [7.0,{A:51.03,B:62.41,C:64.29,D:77.46,E:94.20,F:99.52,G:77.25}],
+  [7.5,{A:52.88,B:63.80,C:66.49,D:79.92,E:97.44,F:103.60,G:79.72}],
+  [8.0,{A:54.72,B:65.19,C:68.69,D:82.38,E:100.68,F:107.68,G:82.19}],
+  [8.5,{A:56.57,B:66.57,C:70.89,D:84.84,E:103.92,F:111.76,G:84.66}],
+  [9.0,{A:58.42,B:67.96,C:73.09,D:87.30,E:107.16,F:115.84,G:87.13}],
+  [9.5,{A:60.27,B:69.34,C:75.29,D:89.76,E:110.40,F:119.92,G:89.60}],
+  [10.0,{A:62.12,B:70.73,C:77.49,D:92.22,E:113.64,F:124.00,G:92.07}],
+  [10.5,{A:63.41,B:79.51,C:86.44,D:94.19,E:139.38,F:150.25,G:94.02}],
+  [11.0,{A:64.71,B:81.86,C:88.33,D:96.16,E:142.39,F:153.96,G:95.97}],
+  [11.5,{A:66.01,B:84.22,C:90.23,D:98.13,E:145.40,F:157.66,G:97.92}],
+  [12.0,{A:67.31,B:86.57,C:92.12,D:100.10,E:148.42,F:161.37,G:99.87}],
+  [12.5,{A:68.61,B:88.92,C:94.02,D:102.07,E:151.43,F:165.07,G:101.82}],
+  [13.0,{A:69.90,B:91.27,C:95.92,D:104.04,E:154.44,F:168.78,G:103.77}],
+  [13.5,{A:71.20,B:93.62,C:97.81,D:106.01,E:157.45,F:172.48,G:105.72}],
+  [14.0,{A:72.50,B:95.98,C:99.71,D:107.98,E:160.46,F:176.19,G:107.67}],
+  [14.5,{A:73.80,B:98.33,C:101.60,D:109.95,E:163.48,F:179.89,G:109.62}],
+  [15.0,{A:75.10,B:100.68,C:103.50,D:111.92,E:166.49,F:183.60,G:111.57}],
+  [15.5,{A:76.39,B:103.03,C:105.40,D:113.89,E:169.50,F:187.30,G:113.52}],
+  [16.0,{A:77.69,B:105.38,C:107.29,D:115.86,E:172.51,F:191.01,G:115.47}],
+  [16.5,{A:78.99,B:107.74,C:109.19,D:117.83,E:175.52,F:194.71,G:117.42}],
+  [17.0,{A:80.29,B:110.09,C:111.08,D:119.80,E:178.54,F:198.42,G:119.37}],
+  [17.5,{A:81.59,B:112.14,C:112.98,D:121.77,E:181.55,F:202.12,G:121.32}],
+  [18.0,{A:82.88,B:112.14,C:114.88,D:123.74,E:184.56,F:205.83,G:123.27}],
+  [18.5,{A:84.18,B:112.14,C:116.77,D:125.71,E:187.57,F:209.53,G:125.22}],
+  [19.0,{A:85.48,B:112.14,C:118.67,D:127.68,E:190.58,F:213.24,G:127.17}],
+  [19.5,{A:86.78,B:112.14,C:120.56,D:129.65,E:193.60,F:216.94,G:129.12}],
+  [20.0,{A:88.08,B:112.14,C:122.46,D:131.62,E:196.61,F:220.65,G:131.07}],
+  [20.5,{A:97.50,B:121.48,C:134.72,D:146.95,E:232.89,F:254.83,G:146.32}],
+];
+const EXP_IP_PERKG = [
+  [21,44,  {A:4.6440,B:5.7850,C:6.4220,E:11.6200,F:12.1350,D:7.5130,G:7.5020}],
+  [45,70,  {A:3.5880,B:5.0310,C:5.4080,E:9.2820, F:10.1100,D:6.1600,G:6.1600}],
+  [71,99,  {A:3.3800,B:4.4070,C:5.1480,E:9.0150, F:9.5100, D:6.0830,G:6.0610}],
+  [100,299,{A:3.3670,B:4.4070,C:5.1480,E:8.9250, F:9.5100, D:5.7530,G:5.5330}],
+  [300,499,{A:3.2500,B:4.4070,C:5.1480,E:8.9100, F:9.5100, D:5.4670,G:5.2800}],
+  [500,999,{A:3.2240,B:4.4070,C:5.1480,E:8.9100, F:9.5100, D:5.3790,G:5.2140}],
+  [1000,99999,{A:3.1850,B:4.4070,C:5.1480,E:8.9100,F:9.5100,D:5.3570,G:5.1590}],
+];
+
+const EXP_IE_PKG_FLAT = [
+  [0.5,{A:22.78,B:25.74,C:26.14,D:29.67,E:33.34,F:37.31,G:29.44}],
+  [1.0,{A:24.65,B:28.65,C:29.41,D:33.01,E:37.47,F:42.31,G:32.64}],
+  [1.5,{A:26.52,B:31.56,C:32.67,D:36.35,E:41.59,F:47.32,G:35.84}],
+  [2.0,{A:28.39,B:34.48,C:35.93,D:39.70,E:45.72,F:52.32,G:39.04}],
+  [2.5,{A:30.26,B:37.39,C:39.19,D:43.04,E:49.84,F:57.32,G:42.24}],
+  [3.0,{A:32.86,B:41.20,C:42.47,D:47.12,E:54.96,F:61.19,G:46.44}],
+  [3.5,{A:35.46,B:45.01,C:45.75,D:51.20,E:60.07,F:65.05,G:50.64}],
+  [4.0,{A:38.06,B:48.81,C:49.02,D:55.29,E:65.19,F:68.92,G:54.85}],
+  [4.5,{A:40.66,B:52.62,C:52.30,D:59.37,E:70.30,F:72.78,G:59.05}],
+  [5.0,{A:43.26,B:56.43,C:55.57,D:63.45,E:75.42,F:76.64,G:63.25}],
+  [5.5,{A:45.11,B:57.85,C:57.77,D:65.78,E:78.45,F:80.52,G:65.57}],
+  [6.0,{A:46.96,B:59.27,C:59.97,D:68.11,E:81.49,F:84.40,G:67.89}],
+  [6.5,{A:48.80,B:60.68,C:62.17,D:70.44,E:84.52,F:88.27,G:70.21}],
+  [7.0,{A:50.65,B:62.10,C:64.36,D:72.78,E:87.56,F:92.15,G:72.53}],
+  [7.5,{A:52.49,B:63.52,C:66.56,D:75.11,E:90.60,F:96.02,G:74.85}],
+  [8.0,{A:54.34,B:64.93,C:68.76,D:77.44,E:93.63,F:99.90,G:77.18}],
+  [8.5,{A:56.19,B:66.35,C:70.95,D:79.77,E:96.67,F:103.78,G:79.50}],
+  [9.0,{A:58.03,B:67.77,C:73.15,D:82.10,E:99.70,F:107.65,G:81.82}],
+  [9.5,{A:59.88,B:69.19,C:75.35,D:84.44,E:102.74,F:111.53,G:84.14}],
+  [10.0,{A:61.72,B:70.60,C:77.54,D:86.77,E:105.78,F:115.40,G:86.46}],
+  [10.5,{A:63.08,B:78.36,C:85.37,D:88.60,E:137.68,F:147.67,G:88.31}],
+  [11.0,{A:64.43,B:80.68,C:87.23,D:90.44,E:140.73,F:151.09,G:90.16}],
+  [11.5,{A:65.78,B:83.01,C:89.10,D:92.28,E:143.78,F:154.51,G:92.00}],
+  [12.0,{A:67.13,B:85.33,C:90.96,D:94.12,E:146.83,F:157.93,G:93.85}],
+  [12.5,{A:68.48,B:87.65,C:92.82,D:95.95,E:149.88,F:161.35,G:95.70}],
+  [13.0,{A:69.84,B:89.98,C:94.68,D:97.79,E:152.94,F:164.77,G:97.55}],
+  [13.5,{A:71.19,B:92.30,C:96.54,D:99.63,E:155.99,F:168.19,G:99.40}],
+  [14.0,{A:72.54,B:94.63,C:98.41,D:101.46,E:159.04,F:171.61,G:101.24}],
+  [14.5,{A:73.89,B:96.95,C:100.27,D:103.30,E:162.09,F:175.03,G:103.09}],
+  [15.0,{A:75.24,B:99.27,C:102.13,D:105.14,E:165.14,F:178.45,G:104.94}],
+  [15.5,{A:76.60,B:101.60,C:103.99,D:106.97,E:168.20,F:181.87,G:106.79}],
+  [16.0,{A:77.95,B:103.92,C:105.85,D:108.81,E:171.25,F:185.29,G:108.64}],
+  [16.5,{A:79.30,B:106.25,C:107.72,D:110.65,E:174.30,F:188.71,G:110.48}],
+  [17.0,{A:80.65,B:108.57,C:109.58,D:112.49,E:177.35,F:192.13,G:112.33}],
+  [17.5,{A:82.00,B:110.84,C:111.44,D:114.32,E:180.40,F:195.55,G:114.18}],
+  [18.0,{A:83.36,B:110.84,C:113.30,D:116.16,E:183.46,F:198.97,G:116.03}],
+  [18.5,{A:84.71,B:110.84,C:115.16,D:118.00,E:186.51,F:202.39,G:117.88}],
+  [19.0,{A:86.06,B:110.84,C:117.03,D:119.83,E:189.56,F:205.81,G:119.72}],
+  [19.5,{A:87.41,B:110.84,C:118.89,D:121.67,E:192.61,F:209.23,G:121.57}],
+  [20.0,{A:88.76,B:110.84,C:120.75,D:123.51,E:195.66,F:212.65,G:123.42}],
+  [20.5,{A:97.05,B:118.75,C:131.37,D:136.74,E:227.10,F:244.88,G:136.66}],
+];
+const EXP_IE_PERKG = [
+  [21,44,  {A:4.6340,B:5.6550,C:6.2700,E:11.2320,D:6.9360,F:11.7130,G:6.9240}],
+  [45,70,  {A:3.5840,B:4.8600,C:5.2650,E:9.2160, D:5.9520,F:9.6900, G:5.9400}],
+  [71,99,  {A:3.3900,B:4.4700,C:5.1900,E:8.9250, D:6.4090,F:9.8280, G:6.3960}],
+  [100,299,{A:3.3750,B:4.4700,C:5.1900,E:8.8740, D:6.0840,F:9.7920, G:5.8240}],
+  [300,499,{A:3.2700,B:4.4700,C:5.1900,E:8.8570, D:5.7070,F:9.7740, G:5.4730}],
+  [500,999,{A:3.2550,B:4.4700,C:5.1900,E:8.8570, D:5.6160,F:9.7740, G:5.3820}],
+  [1000,9999,{A:3.2100,B:4.4700,C:5.1900,E:8.8570,D:5.5900,F:9.7740,G:5.3820}],
+];
+
+// Export freight DTD (>68kg) - Priority
+const EXP_IPF_DTD_PERKG = [
+  [68,99,  {A:2.1330,B:2.8620,C:3.8340,D:4.6350,E:4.9410,F:6.0840,G:4.3200}],
+  [100,299,{A:2.1240,B:2.8440,C:3.8250,D:4.5990,E:4.9230,F:6.0750,G:4.2930}],
+  [300,499,{A:2.1240,B:2.8440,C:3.8070,D:4.5900,E:4.9230,F:6.0750,G:4.2840}],
+  [500,999,{A:2.1240,B:2.8440,C:3.8070,D:4.5900,E:4.9230,F:6.0750,G:4.2840}],
+  [1000,99999,{A:2.1240,B:2.8440,C:3.7980,D:4.5900,E:4.9230,F:6.0750,G:4.2840}],
+];
+// Export freight DTD - Economy
+const EXP_IEF_DTD_PERKG = [
+  [68,99,  {A:1.8720,B:2.4750,C:3.3660,D:3.9330,E:4.3290,F:5.3280,G:4.1400}],
+  [100,299,{A:1.8630,B:2.4750,C:3.3660,D:3.9060,E:4.3200,F:5.3100,G:4.1400}],
+  [300,499,{A:1.8630,B:2.4750,C:3.3660,D:3.8880,E:4.3200,F:5.3100,G:4.1400}],
+  [500,999,{A:1.8630,B:2.4750,C:3.3660,D:3.8880,E:4.3200,F:5.3100,G:4.1400}],
+  [1000,99999,{A:1.8630,B:2.4750,C:3.3210,D:3.8880,E:4.3200,F:5.3100,G:4.1400}],
+];
+// Export freight DTD - Deferred
+const EXP_FDF_DTD_PERKG = [
+  [68,99,  {A:1.7910,B:2.3760,C:3.2310,D:3.7710,E:4.0950,F:5.0310,G:3.9150}],
+  [100,299,{A:1.7820,B:2.3760,C:3.2310,D:3.7440,E:4.0950,F:5.0130,G:3.9150}],
+  [300,499,{A:1.7820,B:2.3760,C:3.2310,D:3.7350,E:4.0770,F:5.0130,G:3.9150}],
+  [500,999,{A:1.7820,B:2.3760,C:3.2310,D:3.7350,E:4.0770,F:5.0130,G:3.9150}],
+  [1000,99999,{A:1.7820,B:2.3760,C:3.2040,D:3.7350,E:4.0770,F:5.0130,G:3.9150}],
+];
+
+// IMPORT (desde USA a ARG/URU) - zona A para ambos
+const IMP_IP_PKG_FLAT = [
+  [0.5,{A:25.79}],[1.0,{A:27.79}],[1.5,{A:29.78}],[2.0,{A:31.77}],[2.5,{A:33.76}],
+  [3.0,{A:35.73}],[3.5,{A:37.70}],[4.0,{A:39.67}],[4.5,{A:41.63}],[5.0,{A:43.60}],
+  [5.5,{A:45.26}],[6.0,{A:46.93}],[6.5,{A:48.59}],[7.0,{A:50.25}],[7.5,{A:51.91}],
+  [8.0,{A:53.57}],[8.5,{A:55.23}],[9.0,{A:56.89}],[9.5,{A:58.55}],[10.0,{A:60.21}],
+  [10.5,{A:62.71}],[11.0,{A:65.21}],[11.5,{A:67.70}],[12.0,{A:70.20}],[12.5,{A:72.70}],
+  [13.0,{A:75.20}],[13.5,{A:77.69}],[14.0,{A:79.23}],[14.5,{A:79.23}],[15.0,{A:79.23}],
+  [15.5,{A:79.23}],[16.0,{A:79.23}],[16.5,{A:79.23}],[17.0,{A:79.23}],[17.5,{A:79.23}],
+  [18.0,{A:79.23}],[18.5,{A:79.23}],[19.0,{A:79.23}],[19.5,{A:79.23}],[20.0,{A:79.23}],
+  [20.5,{A:86.44}],
+];
+const IMP_IP_PAK_FLAT = [
+  [0.5,{A:14.82}],[1.0,{A:19.60}],[1.5,{A:23.86}],[2.0,{A:28.12}],[2.5,{A:32.38}],
+];
+const IMP_IP_PERKG = [
+  [21,44,  {A:4.1160}],
+  [45,67,  {A:3.7200}],
+  [68,70,  {A:4.0300}],
+  [71,99,  {A:3.9910}],
+  [100,299,{A:3.9650}],
+  [300,499,{A:3.9650}],
+  [500,999,{A:3.9650}],
+  [1000,99999,{A:3.9650}],
+];
+const IMP_IE_PKG_FLAT = [
+  [0.5,{A:28.12}],[1.0,{A:30.34}],[1.5,{A:32.56}],[2.0,{A:34.79}],[2.5,{A:37.01}],
+  [3.0,{A:39.25}],[3.5,{A:41.48}],[4.0,{A:43.72}],[4.5,{A:45.95}],[5.0,{A:48.19}],
+  [5.5,{A:50.01}],[6.0,{A:51.83}],[6.5,{A:53.65}],[7.0,{A:55.47}],[7.5,{A:57.29}],
+  [8.0,{A:59.11}],[8.5,{A:60.93}],[9.0,{A:62.75}],[9.5,{A:64.57}],[10.0,{A:66.39}],
+  [10.5,{A:69.24}],[11.0,{A:72.08}],[11.5,{A:74.93}],[12.0,{A:77.78}],[12.5,{A:80.63}],
+  [13.0,{A:83.47}],[13.5,{A:86.32}],[14.0,{A:87.09}],[14.5,{A:87.09}],[15.0,{A:87.09}],
+  [15.5,{A:87.09}],[16.0,{A:87.09}],[16.5,{A:87.09}],[17.0,{A:87.09}],[17.5,{A:87.09}],
+  [18.0,{A:87.09}],[18.5,{A:87.09}],[19.0,{A:87.09}],[19.5,{A:87.09}],[20.0,{A:87.09}],
+  [20.5,{A:93.79}],
+];
+const IMP_IE_PERKG = [
+  [21,44,  {A:4.4660}],
+  [45,67,  {A:4.0320}],
+  [68,70,  {A:3.7440}],
+  [71,99,  {A:3.7050}],
+  [100,299,{A:3.6920}],
+  [300,499,{A:3.6920}],
+  [500,999,{A:3.6920}],
+  [1000,9999,{A:3.6920}],
+];
+// Import freight DTD priority
+const IMP_IPF_DTD_PERKG = [
+  [68,99,  {A:2.5290}],
+  [100,299,{A:2.5290}],
+  [300,499,{A:2.5290}],
+  [500,999,{A:2.5290}],
+  [1000,99999,{A:2.5290}],
+];
+// Import freight DTD economy
+const IMP_IEF_DTD_PERKG = [
+  [68,99,  {A:2.3310}],
+  [100,299,{A:2.3310}],
+  [300,499,{A:2.3310}],
+  [500,999,{A:2.3310}],
+  [1000,99999,{A:2.3310}],
+];
+// Import freight DTD deferred
+const IMP_FDF_DTD_PERKG = [
+  [68,99,  {A:2.2320}],
+  [100,299,{A:2.2320}],
+  [300,499,{A:2.2320}],
+  [500,999,{A:2.2320}],
+  [1000,99999,{A:2.2320}],
+];
+
+// Envelope export (flat, no weight)
+const EXP_ENV = {
+  IPE:{A:19.57,B:21.10,C:21.88,D:26.48,E:28.51,F:29.80,G:26.38},
+  IP: {A:17.47,B:18.84,C:19.54,D:23.65,E:25.45,F:26.61,G:23.56},
+};
+const IMP_ENV = {
+  IP: {A:18.52},
+};
+
+// ─── LOOKUP HELPERS ───────────────────────────────────────────────────────────
+function roundUp(w){ return Math.ceil(w * 2) / 2; }
+
+function flatLookup(table, wKg, zone){
+  const w = roundUp(wKg);
+  for(let i=0;i<table.length;i++){
+    if(w <= table[i][0]){
+      const v = table[i][1][zone];
+      if(v !== undefined) return {rate:v, weightUsed:w, type:'Fijo por envío'};
+      return null;
+    }
+  }
+  return null;
+}
+
+function perKgLookup(table, wKg, zone){
+  const w = roundUp(wKg);
+  for(let r of table){
+    if(w >= r[0] && w <= r[1]){
+      const ratePerKg = r[2][zone];
+      if(ratePerKg === undefined) return null;
+      return {rate:parseFloat((w*ratePerKg).toFixed(2)), ratePerKg, weightUsed:w, type:'Por kilogramo'};
+    }
+  }
+  return null;
+}
+
+// ─── MAIN CALC ────────────────────────────────────────────────────────────────
+let lastCalc = {};
+
+function calcRate(){
+  const route   = document.getElementById('c-route').value;
+  const service = document.getElementById('c-service').value;
+  const pkg     = document.getElementById('c-pkg').value;
+  const rawW    = parseFloat(document.getElementById('c-weight').value);
+  const errEl   = document.getElementById('c-err');
+
+  errEl.textContent = 'Completá todos los campos e ingresá un peso válido.';
+  if(!route || !service || !rawW || rawW <= 0){
+    errEl.classList.add('show'); return;
+  }
+  errEl.classList.remove('show');
+
+  let wKg = currentUnit === 'lb' ? rawW * 0.453592 : rawW;
+  const zone = getZone(route);
+  let result = null;
+
+  const isImport = route.startsWith('import');
+  const isFreight = service.includes('DTD');
+
+  // Freight services: min 68kg
+  if(isFreight && wKg < 68){
+    errEl.textContent = 'Los servicios Freight requieren un mínimo de 68 kg.';
+    errEl.classList.add('show'); return;
+  }
+
+  // IE no tiene sobre/pak
+  if(service === 'IE' && (pkg === 'Pak' || pkg === 'Envelope')){
+    errEl.textContent = 'FedEx Int\'l Economy no admite Pak ni Sobre. Seleccioná Paquete.';
+    errEl.classList.add('show'); return;
+  }
+  // IP import no tiene envelope separado (usa mismo flat)
+  // Freight no tiene tipo de paquete
+  if(isFreight && pkg !== 'Package'){
+    // force package silently
+  }
+
+  if(isImport){
+    if(service === 'IP'){
+      if(pkg === 'Envelope') result = IMP_ENV.IP ? {rate: IMP_ENV.IP[zone]||IMP_ENV.IP['A'], weightUsed:0, type:'Fijo (sobre)'} : null;
+      else if(pkg === 'Pak') result = flatLookup(IMP_IP_PAK_FLAT, wKg, 'A') || perKgLookup(IMP_IP_PERKG, wKg, 'A');
+      else result = flatLookup(IMP_IP_PKG_FLAT, wKg, 'A') || perKgLookup(IMP_IP_PERKG, wKg, 'A');
+    } else if(service === 'IE'){
+      result = flatLookup(IMP_IE_PKG_FLAT, wKg, 'A') || perKgLookup(IMP_IE_PERKG, wKg, 'A');
+    } else if(service === 'IPF-DTD'){
+      result = perKgLookup(IMP_IPF_DTD_PERKG, wKg, 'A');
+    } else if(service === 'IEF-DTD'){
+      result = perKgLookup(IMP_IEF_DTD_PERKG, wKg, 'A');
+    } else if(service === 'FDF-DTD'){
+      result = perKgLookup(IMP_FDF_DTD_PERKG, wKg, 'A');
+    }
+  } else {
+    // Export
+    if(service === 'IPE'){
+      if(pkg === 'Envelope') result = EXP_ENV.IPE[zone] ? {rate:EXP_ENV.IPE[zone], weightUsed:0, type:'Fijo (sobre)'} : null;
+      else if(pkg === 'Pak') result = flatLookup(EXP_IPE_PAK_FLAT, wKg, zone) || perKgLookup(EXP_IPE_PERKG, wKg, zone);
+      else result = flatLookup(EXP_IPE_PKG_FLAT, wKg, zone) || perKgLookup(EXP_IPE_PERKG, wKg, zone);
+    } else if(service === 'IP'){
+      if(pkg === 'Envelope') result = EXP_ENV.IP[zone] ? {rate:EXP_ENV.IP[zone], weightUsed:0, type:'Fijo (sobre)'} : null;
+      else if(pkg === 'Pak') result = flatLookup(EXP_IPE_PAK_FLAT, wKg, zone) || perKgLookup(EXP_IP_PERKG, wKg, zone);
+      else result = flatLookup(EXP_IP_PKG_FLAT, wKg, zone) || perKgLookup(EXP_IP_PERKG, wKg, zone);
+    } else if(service === 'IE'){
+      result = flatLookup(EXP_IE_PKG_FLAT, wKg, zone) || perKgLookup(EXP_IE_PERKG, wKg, zone);
+    } else if(service === 'IPF-DTD'){
+      result = perKgLookup(EXP_IPF_DTD_PERKG, wKg, zone);
+    } else if(service === 'IEF-DTD'){
+      result = perKgLookup(EXP_IEF_DTD_PERKG, wKg, zone);
+    } else if(service === 'FDF-DTD'){
+      result = perKgLookup(EXP_FDF_DTD_PERKG, wKg, zone);
+    }
+  }
+
+  if(!result){
+    errEl.textContent = 'No se encontró tarifa para esta combinación. Revisá peso y servicio.';
+    errEl.classList.add('show'); return;
+  }
+
+  // Save for WA message
+  lastCalc = {route, service, pkg, wKg: result.weightUsed||wKg, rate: result.rate, zone};
+
+  // Display
+  document.getElementById('res-empty').style.display = 'none';
+  const rb = document.getElementById('res-box');
+  rb.classList.add('show');
+
+  const routeNames = {
+    'import-ARG':'USA → Argentina','import-URU':'USA → Uruguay',
+    'export-USA':'Argentina → USA','export-URU':'Argentina → Uruguay',
+    'export-BRA':'Argentina → Brasil','export-EUR':'Argentina → Europa',
+    'export-CHN':'Argentina → Asia/China',
+  };
+  const svcSel = document.getElementById('c-service');
+  const svcLabel = svcSel.options[svcSel.selectedIndex].text;
+
+  document.getElementById('r-svc').textContent = routeNames[route] + ' · ' + svcLabel + (pkg !== 'Package' ? ' · '+pkg : '');
+  document.getElementById('r-price').textContent = 'USD ' + result.rate.toFixed(2);
+  document.getElementById('r-wt').textContent = result.weightUsed > 0 ? result.weightUsed.toFixed(1)+' kg' : 'N/A';
+  document.getElementById('r-zone').textContent = getZoneLabel(route);
+  document.getElementById('r-rate').textContent = result.ratePerKg ? result.ratePerKg.toFixed(4) : 'Flat';
+  document.getElementById('r-type').textContent = result.type;
+}
+
+function sendWAQuote(){
+  const route = document.getElementById('c-route').value;
+  const svcEl = document.getElementById('c-service');
+  const svc = svcEl.options[svcEl.selectedIndex] ? svcEl.options[svcEl.selectedIndex].text : '';
+  const wt = lastCalc.wKg ? lastCalc.wKg.toFixed(1)+' kg' : '';
+  const price = lastCalc.rate ? 'USD '+lastCalc.rate.toFixed(2) : '';
+  const msg = encodeURIComponent(
+    'Hola, quiero una cotización completa para Ampersand Courier.\n\n'+
+    'Ruta: '+(route||'—')+'\nServicio: '+svc+'\nPeso: '+wt+'\nTarifa neta FedEx estimada: '+price+'\n\n'+
+    '¿Me pueden dar el precio all-in con honorarios e impuestos?'
+  );
+  window.open('https://wa.me/5491122459545?text='+msg,'_blank');
+}
+
+function sendWA(){
+  const name = document.getElementById('f-name').value || '';
+  const msg  = document.getElementById('f-msg').value || '';
+  const text = encodeURIComponent(
+    'Hola, me interesa Ampersand Courier (USA→Argentina).\n\n'+
+    (name ? 'Nombre: '+name+'\n' : '')+
+    (msg  ? 'Detalles del envío: '+msg : '')
+  );
+  window.open('https://wa.me/5491122459545?text='+text,'_blank');
+}
+</script>
+</body>
+</html>
