@@ -293,6 +293,17 @@ footer p{font-size:16px;margin-top:6px}
   .nav .btn{display:none}
 }
 @media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-1px)}}
+
+/* fotos (prueba) */
+.hero .foto{position:relative;justify-self:end;width:min(480px,100%)}
+.hero .foto img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-lg);display:block}
+.hero .foto .offer{position:absolute;left:-56px;bottom:-40px;width:210px;padding:14px;box-shadow:0 18px 40px rgba(16,20,60,.35)}
+.hero .foto .offer b{font-size:72px}.hero .foto .offer span{font-size:16px}.hero .foto .offer small{font-size:12px;max-width:150px}
+.path .ph{margin:-40px -40px 6px;aspect-ratio:16/9;overflow:hidden;border-radius:var(--r-lg) var(--r-lg) 0 0}
+.path .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.respaldo .ph{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:21/8;margin-bottom:48px}
+.respaldo .ph img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:900px){.hero .foto{justify-self:stretch;width:100%;margin-top:12px}.hero .foto img{aspect-ratio:4/3}.hero .foto .offer{left:auto;right:16px;bottom:-30px;width:170px}.hero .foto .offer b{font-size:56px}.path .ph{margin:-26px -26px 4px}.respaldo .ph{aspect-ratio:16/9}}
 </style>
 <style>:root{padding:0}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -313,7 +324,7 @@ footer p{font-size:16px;margin-top:6px}
       <p class="lede">Traemos y llevamos paquetes desde y hacia cualquier país. Retiramos en origen, hacemos la aduana con despacho propio y te lo dejamos en la puerta. Antes de mandar, te decimos cuánto vas a pagar de impuestos.</p>
       <div class="ctas"><a class="btn btn-amber" href="#cotizar">Cotizar mi envío <span class="go" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="#caminos">Soy una empresa</a></div>
     </div>
-    <div class="offer" role="img" aria-label="30% de descuento en tu primer envío"><b>30%</b><span>de descuento</span><small>en tu primer envío como persona</small></div>
+    <div class="foto"><img src="https://images.unsplash.com/photo-1770013413878-2530e2c3d82b?w=1200&q=80&auto=format&fit=crop" alt="Mujer revisando en el celular el envío de una caja"><div class="offer" role="img" aria-label="30% de descuento en tu primer envío"><b>30%</b><span>de descuento</span><small>en tu primer envío como persona</small></div></div>
   </div>
   <div class="trayecto" aria-hidden="true">
     <div class="dots"><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="g"></i></div>
@@ -333,6 +344,7 @@ footer p{font-size:16px;margin-top:6px}
   <div class="head"><div><p class="eyebrow">Dos formas de usarnos</p><h2>Elegí por dónde entrás</h2></div><p>No es lo mismo recibir una compra personal que sostener los envíos de una empresa todos los meses. Cambian los papeles, los tiempos y lo que hay que cuidar.</p></div>
   <div class="paths">
     <div class="path p1">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1758523670564-d1d6a734dc0b?w=900&q=80&auto=format&fit=crop" alt="Pareja recibiendo una caja en la puerta de su casa" loading="lazy"></div>
       <span class="tag">Personas</span>
       <h3>Compraste afuera y lo querés acá</h3>
       <p>Vos comprás. Nosotros lo retiramos, lo pasamos por aduana y te lo llevamos. Sin que tengas que entender de trámites.</p>
@@ -340,6 +352,7 @@ footer p{font-size:16px;margin-top:6px}
       <a class="btn" href="#cotizar">Cotizar mi envío <span class="go" aria-hidden="true">→</span></a>
     </div>
     <div class="path p2">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1773146916231-e6aeae932080?w=900&q=80&auto=format&fit=crop" alt="Emprendedora preparando envíos en su taller" loading="lazy"></div>
       <span class="tag">Empresas</span>
       <h3>Tu operación no puede frenarse</h3>
       <p>Muestras, documentación, repuestos urgentes y producto sensible. Cuando algo se traba en aduana, lo destraba gente que trabaja en aduana todos los días.</p>
@@ -486,7 +499,7 @@ footer p{font-size:16px;margin-top:6px}
   <p class="fine" style="margin-top:18px">Situaciones de ejemplo. Pronto, casos con nombre de nuestros clientes.</p>
 </div></section>
 
-<section class="respaldo"><div class="wrap"><div class="grid">
+<section class="respaldo"><div class="wrap"><div class="ph"><img src="https://images.unsplash.com/photo-1590497008432-598f04441de8?w=1800&q=80&auto=format&fit=crop" alt="Puerto con contenedores de noche" loading="lazy"></div><div class="grid">
   <div><p class="eyebrow">Quién está detrás</p><h2>No somos un courier nuevo</h2><p>Ampersand Courier es un servicio de C&amp;M Group. El paquete lo maneja la misma estructura que despacha contenedores todos los días desde el año 2000. Cuando tu paquete se vuelve una carga, seguís con nosotros.</p></div>
   <div class="nums"><div class="num"><b>+25</b><span>años en comercio exterior</span></div><div class="num"><b>150</b><span>países en la red</span></div><div class="num"><b>+1.000</b><span>puertos y aeropuertos</span></div><div class="num"><b>ISO 9001</b><span>procesos certificados por SGS</span></div></div>
 </div></div></section>
